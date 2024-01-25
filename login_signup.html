@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comdivatible" content="IE=edge" />
+    <meta name="viewdivort" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Roots Plant Shop</title>
+
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<style>
+    progress {
+        width: 80%;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    button {
+        font-family: didot;
+        font-size: 1.5em;
+        color: rgb(14, 88, 14);
+        text-align: center;
+        width: 200px;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .button {
+        font-family: didot;
+        font-size: 1em;
+        color: rgb(14, 88, 14);
+        text-align: center;
+        width: 200px;
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    legend {
+        font-family: didot;
+        font-size: 3em;
+        color: rgb(211, 228, 211);
+        text-shadow: 5px 5px rgb(52, 114, 65);
+        text-align: center;
+        margin: 3%;
+    }
+
+    body {
+        background-color: rgb(138, 190, 164);
+        border-top: groove 15px hsl(162, 37%, 60%);
+        border-bottom: ridge 15px hsl(162, 37%, 60%);
+        border-left: ridge 15px hsl(162, 37%, 60%);
+        border-right: groove 15px hsl(162, 37%, 60%);
+    }
+
+    fieldset {
+        border: groove 10px hsl(162, 37%, 60%);
+        font-family: didot;
+        font-size: 1.3em;
+        color: rgb(178, 231, 178);
+        text-align: center;
+        margin-top: 2%;
+    }
+
+
+    #message {
+        color: rgb(139, 130, 110);
+        width: 100%;
+        font-size: 3em;
+        font-family: didot;
+        padding-left: 43%;
+
+    }
+
+    .footer {
+        background-color: rgb(181, 219, 181);
+        border: solid 2px rgb(105, 146, 97);
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        margin: 0.5%;
+        font-family: didot;
+        font-size: 20px
+    }
+
+    .footer a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        flex-grow: 1;
+    }
+
+    .material-symbols-outlined {
+        color: rgb(84, 155, 202);
+    }
+</style>
+
+<legend>Log In / Sign Up</legend>
+
+<fieldset>
+    <label>Enter your Full Name</label>
+    <input type="text" name="username" required />
+</fieldset>
+
+<fieldset>
+    <label>Enter your Email</label>
+    <input type="text" name="email" required />
+</fieldset>
+
+<fieldset>
+    <label>Enter your Address</label>
+    <input type="text" name="address" required />
+</fieldset>
+
+
+<body>
+    <div>
+
+        <p>
+
+            <h>
+                <button onclick="displayProgress()">Log In</button> <br>    <!--button-->
+                <button onclick="displayProgress()">New Account</button><br>    <!--button-->
+                <progress value="0" id="downloadProgress" max="10"></progress> <br>     <!--progress bar, from 0-10-->
+            </h>
+            <span id="message"></span>
+
+            <script>
+                // initialise variables: 
+                var millisec = 0;
+                var max = 10;
+
+                function displayProgress() {
+
+                    // checks if max value has been reached / current value is less than the max value	
+                    if (millisec < max) {
+                        // increments the counter variable by 1
+                        millisec++;
+                        // Update the progress bar with the new value
+                        document.getElementById('downloadProgress').value = millisec;
+                        // calls the function to perform the next iteration, after waiting 150ms (recursively)
+                        setTimeout("displayProgress()", 150);
+                    }
+                    else {
+                        // once progress bar reaches the max value, print this message
+                        document.getElementById("message").innerHTML = "Success!";
+                    }
+                }
+                // resets progress bar to 0
+                function reset() {
+                    document.getElementById("downloadProgress").value = 0;
+                    millisec = 0;
+                }
+            </script>
+
+        </p>
+
+    </div>
+
+    <div class="button">
+        <button onclick="reset()" id="reset">Reset</button>
+    </div>
+    <!--button that resets the progress bar-->
+
+    <footer class="footer">
+        <a href="contact.html">contact us <br> <i class="material-symbols-outlined">mail</i></a></li><br> |
+        <a href="mediacentre.html">media centre <br> <i class="material-symbols-outlined">newspaper</i></a></li><br> |
+        <a href="community.html">our community <br> <i class="material-symbols-outlined">forum</i></a></li><br>
+    </footer>
+
+</body>
+
+</html>
